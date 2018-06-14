@@ -39,3 +39,7 @@ when /.+/
 else
   gem framework
 end
+
+group :bench do
+  gem 'stackprof'
+end
