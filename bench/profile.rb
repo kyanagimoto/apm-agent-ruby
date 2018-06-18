@@ -72,7 +72,7 @@ def do_bench(config = {})
   Benchmark.benchmark(CAPTION, 7, FORMAT, 'avg:') do |x|
     benchmarks =
       with_app(config) do |app|
-        10.times.map do |i|
+        1000.times.map do |i|
           x.report("run[#{i}]") { perform(app) }
         end
       end
