@@ -68,12 +68,14 @@ def banner(text)
   puts '=' * 78
 end
 
-def do_bench(config = {})
+def do_bench(transaction_count: 1000, **config)
+  puts ">> Creating #{transaction_count} transactions... \n \n"
+
   Benchmark.benchmark(CAPTION, 7, FORMAT, 'avg:') do |x|
     benchmarks =
       with_app(config) do |app|
-        1000.times.map do |i|
-          x.report("run[#{i}]") { perform(app) }
+        10.times.map do |i|
+          x.report("run[#{i}]") { perform(app, count: transaction_count) }
         end
       end
 
