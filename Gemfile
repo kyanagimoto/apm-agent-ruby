@@ -41,5 +41,5 @@ else
 end
 
 group :bench do
-  gem 'stackprof'
+  gem 'stackprof', platforms: %i[ruby]
 end
